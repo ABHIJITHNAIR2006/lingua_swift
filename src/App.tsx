@@ -505,30 +505,16 @@ export default function App() {
             onTriggerToast={showToast}
           />
 
-          {/* Central Action & Swap Floating Bridge (Desktop & Mobile) */}
-          <div className="lg:absolute lg:left-1/2 lg:top-8 lg:-translate-x-1/2 lg:z-20 flex items-center justify-center gap-3 my-2 lg:my-0">
+          {/* Swap Language Button between panels */}
+          <div className="flex items-center justify-center my-1 lg:my-0 lg:absolute lg:left-1/2 lg:top-5 lg:-translate-x-1/2 lg:z-10">
             <button
               type="button"
               onClick={handleSwap}
               title="Swap languages & text (Alt+S)"
               aria-label="Swap source and target languages"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-md hover:border-teal-500 hover:text-teal-600 hover:scale-105 active:scale-95 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:text-teal-300 transition-all"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm hover:border-teal-500 hover:text-teal-600 hover:scale-105 active:scale-95 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:text-teal-300 transition-all"
             >
               <ArrowLeftRight className="h-4 w-4" />
-            </button>
-
-            <button
-              type="button"
-              onClick={() => executeTranslation(sourceText, sourceLang, targetLang)}
-              disabled={isLoading || !sourceText.trim()}
-              title="Translate now (Ctrl+Enter)"
-              className="flex items-center gap-2 rounded-xl bg-teal-600 px-5 py-2.5 text-xs font-semibold text-white shadow-md hover:bg-teal-500 disabled:opacity-50 disabled:pointer-events-none active:scale-95 dark:bg-teal-500 dark:hover:bg-teal-400 transition-all whitespace-nowrap"
-            >
-              <Sparkles className="h-4 w-4" />
-              <span>Translate</span>
-              <kbd className="hidden sm:inline-block ml-1 text-[10px] bg-teal-700 px-1.5 py-0.5 rounded text-teal-100 font-mono">
-                Ctrl+↵
-              </kbd>
             </button>
           </div>
 
@@ -547,6 +533,29 @@ export default function App() {
             onRetry={() => executeTranslation(sourceText, sourceLang, targetLang)}
             onTriggerToast={showToast}
           />
+        </div>
+
+        {/* Action Row below Translation Panels */}
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+          <div className="text-xs text-slate-500 dark:text-slate-400">
+            <span>Tip: Press <kbd className="rounded bg-slate-200 px-1.5 py-0.5 font-mono text-[11px] text-slate-700 dark:bg-slate-800 dark:text-slate-300">Ctrl + Enter</kbd> to translate instantly</span>
+          </div>
+
+          <div className="flex items-center gap-3 ml-auto">
+            <button
+              type="button"
+              onClick={() => executeTranslation(sourceText, sourceLang, targetLang)}
+              disabled={isLoading || !sourceText.trim()}
+              title="Translate now (Ctrl+Enter)"
+              className="flex items-center gap-2 rounded-xl bg-teal-600 px-5 py-2.5 text-xs font-semibold text-white shadow-md hover:bg-teal-500 disabled:opacity-50 disabled:pointer-events-none active:scale-95 dark:bg-teal-500 dark:hover:bg-teal-400 transition-all whitespace-nowrap"
+            >
+              <Sparkles className="h-4 w-4" />
+              <span>Translate</span>
+              <kbd className="hidden sm:inline-block ml-1 text-[10px] bg-teal-700 px-1.5 py-0.5 rounded text-teal-100 font-mono">
+                Ctrl+↵
+              </kbd>
+            </button>
+          </div>
         </div>
 
         {/* Quiet Footer Note with Engine & Capabilities */}
