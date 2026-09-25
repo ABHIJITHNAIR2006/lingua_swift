@@ -1,0 +1,6 @@
+{
+  "name": "LinguaSwift - AI Language Translation",
+  "description": "Fast, accurate multi-language translation web application with instant auto-detect, voice input, speech synthesis, and phrase history.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
